@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <br>
+    <div class="text-center">
+    <h1 style='color:whitesmoke'>Choisit votre position</h1>
+    <div class="container" id="map" style="height: 500px; width: 1000px; margin-top: 30px">
+      <div class="d-flex justify-content-center">
+        {{form}}
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="save" style='width:30%'>
+      save
+    </button>
+  </div>
+  </form>
+</div>
+
+
+<script>
+
+  var map = L.map("map", { doubleClickZoom: false }).setView([37.215 ,10.12], 2);
+
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    minZoom: 2,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(map);
+
+  var marker;
+
+  map.on("click", function (e) {
+    // If marker is already defined, remove it before adding a new one
+    if (marker) {
+      map.removeLayer(marker);
+    }
+    // Add new marker at double-clicked location
+    marker = L.marker(e.latlng).addTo(map);
+    document.getElementById("lat").value = e.latlng.lat;
+    document.getElementById("lng").value = e.latlng.lng;
+  });
+</script>
+{% endblock %}
