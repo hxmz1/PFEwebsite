@@ -26,7 +26,7 @@ class client(forms.Form):
         prenom = self.data['prenom']
         if any(char.isdigit() for char in prenom):
             self.add_error("prenom", "Prenom est incorrect!")
-        id = self.data['identifiant']
+        id = self.data['id']
         if Client.objects.filter(identifiant=id).exists():
             self.add_error("identifiant", "identifiant déja existant!")
         email = self.data['email']
@@ -46,16 +46,18 @@ class client(forms.Form):
         value = super(client, self).is_valid()
         return value
 
-    def enregistrer(self):
+    def enregistrer(self, superviseur):
         nom = self.cleaned_data['nom']
         prenom = self.cleaned_data['prenom']
         email = self.cleaned_data['email']
-        id = self.cleaned_data['identifiant']
+        id = self.cleaned_data['id']
         telephone = self.cleaned_data['telephone']
         confirmation_mot_de_passe = self.cleaned_data['confirmation_mot_de_passe']
         clientdata = Client(nom=nom, prenom=prenom, identifiant=id,
-                          NB_GSM=telephone, e_mail=email)
+                          NB_GSM=telephone, e_mail=email, superviseur = superviseur)
         clientdata.save()
+
+        
         clientdata = User.objects.create_user(
             id, email, confirmation_mot_de_passe)
         clientdata.save()

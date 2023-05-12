@@ -4,7 +4,7 @@
     {% csrf_token %}
     <h1 class="text-center mb-4">Connexion superviseur</h1>
     <div class="mb-3">
-      <label for="pseudo" class="form-label"><h4>Pseudo:</h4></label>
+      <label for="pseudo" class="form-label"><h4>ID superviseur:</h4></label>
       {{ form.pseudo }}
       {% if form.pseudo.errors %}<h4>
       <div class="text-danger" role="alert">{{ form.pseudo.errors }}</div></4>

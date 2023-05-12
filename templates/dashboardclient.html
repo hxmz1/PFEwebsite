@@ -1,0 +1,66 @@
+{% extends 'base.html' %}{%load static %}
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" integrity="sha512-Ft+5m5Mf56gcl8+MxEkZt3qdbSoI5Aebj2W1nRtL5z5CBYChvrl8flnI5MWnEFq3HdbBZthbQar1Wz4L4QPODQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+      body {
+          padding: 0;
+          margin: 0;
+          background-image: url("{% static 'images/client11.jpg' %}");
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+      #sidebar {
+          background-color: #343a40;
+          height: 50vh;
+          position:relative;
+          top: 0;
+          left: 0;
+          width: 200px;
+          padding: 20px;
+          color: #fff;
+      }
+      #sidebar ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
+      #sidebar ul li a {
+          color: #fff;
+          text-decoration: none;
+          display: block;
+          padding: 10px;
+          margin-bottom: 5px;
+          border-radius: 5px;
+      }
+      #sidebar ul li a:hover {
+          background-color: #495057;
+      }
+      #content {
+          margin-left: 200px;
+          padding: 20px;
+      }
+  </style>
+</head>
+<div id="container">
+  <div id="sidebar">
+      <ul>
+          
+          <li><a href="#">voir l'etat de votre compost</a></li>
+          <li><a href="#">guide de compostage</a></li>
+          <li><a href="#">comment intervenir</a></li>
+          <li><a href="#">sortir</a></li>
+      </ul>
+  </div>
+  <section>
+  <div id="content">
+      <h1>Welcome our Client</h1>
+      
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js" integrity="sha512-Ay2h6r1u6W1wDD7q3gZPwti7HJkWdSPb/l+O9s1biOt7Cj0i2wNO7zys73aLsD7iucjLQmJwoMh06XxukvbgPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</div>
+    
+{% endblock %}

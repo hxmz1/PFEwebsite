@@ -1,28 +1,35 @@
 from django.shortcuts import render, redirect
 from .forms import *
-from .models import *
+from .models import Client, Superviseur
+from superviseur.views import *
 
 
 # Create your views here.
 
 
-def inscritsuperviseur(request):
+"""def inscritsuperviseur(request):
     if request.method == 'POST':
         formulaire = superviseur(request.POST)
         if formulaire.is_valid():
             formulaire.enregistrer()
             return redirect('connexionsuperviseur')
         return render(request, 'signup.html', {'form': formulaire})
-    return render(request, 'signup.html', {'form': superviseur()})
+    return render(request, 'signup.html', {'form': superviseur()})"""
 
-"""def inscritclient(request):
+def inscritclient(request, pseudo):
+    
     if request.method == 'POST':
-        formulaire = client(request.POST)
-        if formulaire.is_valid():
-            formulaire.enregistrer()
-            return redirect('login')
-        return render(request, 'page1/inscrire.html', {'form': formulaire})
-    return render(request, 'page1/inscrire.html', {'form': superviseur()})"""
+        formul = client(request.POST)
+        if formul.is_valid():
+            superviseur = Superviseur.objects.get(pseudo=pseudo)
+            
+            formul.enregistrer(superviseur)
+            client_id = formul.cleaned_data['id']
+            print(client_id)
+            
+            return redirect('add_node', pseudo=pseudo , client_id=client_id)
+        return render(request, 'signup.html', {'form': formul})
+    return render(request, 'signup.html', {'form': client()})
 
 
 """def inscritclient(request, superviseur_id):
@@ -40,16 +47,4 @@ def inscritsuperviseur(request):
 
     context = {'form': form, 'superviseur': superviseur}
     return render(request, 'create_client.html', context)"""
-
-
-def maps(request, variable, pseudo):
-    if request.method == 'POST':
-        formulaire = position(request.POST)
-        if formulaire.is_valid():
-            if variable == 'superviseur':
-                formulaire.enregistrer_noeud()
-                return redirect('map', variable, pseudo)
-            
-        return render(request, 'pagesuperviseur.html', {'form': formulaire})
-    return render(request, 'pagesuperviseur.html', {'form': position()})
 

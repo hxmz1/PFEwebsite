@@ -30,26 +30,19 @@ class LoginasClient(forms.Form):
         )
     )
 
-    def clean(self):
-        cleaned_data = super().clean()
-        id = cleaned_data.get('identifiant')
-        mot_de_passe = cleaned_data.get('mot_de_passe')
-
-        if User.objects.filter(username=id).exists():
-            user = authenticate(username=id, password=mot_de_passe)
+    def is_valid(self, request):
+        identifiant = self.data['identifiant']
+        mot_de_passe = self.data['mot_de_passe']
+        if User.objects.filter(username=identifiant).exists():
+            # Here, we assign the result of authenticate() to a variable
+            user = authenticate(request, username=identifiant,
+                                password=mot_de_passe)
             if user is None:
-                raise forms.ValidationError(
-                    "Les mots de passe ne correspondent pas.",
-                    code='invalid_password'
-                )
+                self.add_error(
+                    "mot_de_passe", "Les mots de passe ne correspondent pas.")
         else:
-            raise forms.ValidationError(
-                "Ce compte n'existe pas.",
-                code='invalid_username'
-            )
-
-        cleaned_data['user'] = user
-        return cleaned_data
+            self.add_error("pseudo", "Ce compte n'existe pas.")
+        return super(LoginasClient, self).is_valid()
 
 
 """# views.py
@@ -77,7 +70,7 @@ class LoginasSuperviseur(forms.Form):
             attrs={
                 'id': 'pseudo',
                 'name': 'pseudo',
-                'placeholder': 'Pseudo',
+                'placeholder': 'id',
                 'class': "form-control shadow-lg p-6 mb-6 rounded",
                 'style': "font-size: 20px"
             }

@@ -5,22 +5,30 @@
 {% leaflet_css %}
 {% leaflet_map 'mapid' %}
 <div class="container">
+  
   <form method="POST">
     {% csrf_token %}
-    <br>
-    <div class="text-center">
-    <h1 style='color:rgb(252, 8, 8)'>Choisit votre position</h1>
-    <div class="container" id="map" style="height: 500px; width: 1000px; margin-top: 30px">
-      <div class="d-flex justify-content-center">
-        {{form}}
+   
+   <div class='col-6 rounded ' id="map" style="width: 1000px;height: 500px; box-sizing:border-box; margin-top: 20px;  border-radius: 50px;">
+      <div class="leaflet-control">
+
       </div>
+
     </div>
-    <br>
-    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="save" style='width:30%'>
-      save
-    </button>
-  </div>
+   
+<br><br>
+<label for="lat">Latitude:</label>
+            <input type="text" id="lat" name="Latitude">
+
+            <label for="lng">Longitude:</label>
+            <input type="text" id="lng" name="Longitude">
+
+            <label for="lng">name:</label>
+            <input type="text" id="lng" name="name">
+    <button class="btn btn-dark  mx-auto d-block" style='  font-size: 15px; background-color: darkgreen;'> save node</button> 
   </form>
+
+  
 </div>
 
 
@@ -29,8 +37,8 @@
     var map = L.map('mapid').setView([37.215 ,10.12], 13);
     L.control.layers({
         
-    'Satellite': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Sources: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community',
+    'Satellite': L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 18,
         tileSize: 512,
         zoomOffset: -1,

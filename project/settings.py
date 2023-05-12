@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.gis',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -46,8 +47,8 @@ INSTALLED_APPS = [
     'home',
     'connexion',
     'leaflet',
-    #'superviseur',
-    #'client',
+    'superviseur',
+    'client',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,9 @@ MEDIA_ROOT = BASE_DIR / 'images'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#mqtt settings
+MQTT_SERVER = 'eu1.cloud.thethings.network'
+MQTT_PORT = 1883
+MQTT_KEEPALIVE = 60
+MQTT_USER = 'loraatest02@ttn'
+MQTT_PASSWORD = 'NNSXS.LO6MNFLIDPGXTB4YOKJWMEK2CYCNIODLIVEQ2RY.5THHCR2XZHZXYT4VTZZLNTKNDGLSWCQ2GKFCVW2OID67WKOMI53A'
