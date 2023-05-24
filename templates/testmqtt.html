@@ -1,12 +1,169 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Detail</title>
-    </head>
-    <article>
+  <head>
+    <title>Detail</title>
+    <style>
+      body {
+        background: linear-gradient(to bottom, #232b2a, #494949);
         
-        <h1>{{ context }}</h1>
-        
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  </head>
+  <body>
+    <canvas id="temperatureChart" style="width:100%;max-width:600px"></canvas>
+    <canvas id="humidityChart" style="width:100%;max-width:600px"></canvas>
+    <div>
+      <h1 id="temperature">{{ temperature }}</h1>
+      <h1 id="humidity">{{ humidity }}</h1>
+    </div>
+
+    <script>
+      var temperatureData = [];
+      var humidityData = [];
+
       
-    </article>
+      if (localStorage.getItem("temperatureData")) {
+        temperatureData = JSON.parse(localStorage.getItem("temperatureData"));
+      }
+      if (localStorage.getItem("humidityData")) {
+        humidityData = JSON.parse(localStorage.getItem("humidityData"));
+      }
+
+      // Create the temperature chart
+      const temperatureChart = new Chart(document.getElementById("temperatureChart").getContext("2d"), {
+        type: "line",
+        data: {
+          labels: temperatureData.map((value, index) => index + 1),
+          datasets: [
+            {
+              data: temperatureData,
+              borderColor: "rgba(255, 99, 132, 1)",
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              fill: true,
+              label: "Temperature",
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: true,
+            labels: {
+              fontColor: "rgba(255, 99, 132, 1)",
+              fontSize: 14,
+            },
+          },
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  fontColor: "rgba(255, 99, 132, 1)",
+                },
+                gridLines: {
+                  color: "rgba(255, 99, 132, 0.2)",
+                },
+              },
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  fontColor: "rgba(255, 99, 132, 1)",
+                },
+                gridLines: {
+                  color: "rgba(255, 99, 132, 0.2)",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      // Create the humidity chart
+      const humidityChart = new Chart(document.getElementById("humidityChart").getContext("2d"), {
+        type: "line",
+        data: {
+          labels: humidityData.map((value, index) => index + 1),
+          datasets: [
+            {
+              data: humidityData,
+              borderColor: "rgba(54, 162, 235, 1)",
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              fill: true,
+              label: "Humidity",
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: true,
+            labels: {
+              fontColor: "rgba(54, 162, 235, 1)",
+              fontSize: 14,
+            },
+          },
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  fontColor: "rgba(54, 162, 235, 1)",
+                },
+                gridLines: {
+                  color: "rgba(54, 162, 235, 0.2)",
+                },
+              },
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  fontColor: "rgba(54, 162, 235, 1)",
+                },
+                gridLines: {
+                  color: "rgba(54, 162, 235, 0.2)",
+                },
+              },
+            ],
+          },
+        },
+      });
+
+      $(document).ready(function () {
+        setInterval(function () {
+          $.ajax({
+            url: "{% url 'mqtt_two' id=id %}",
+            type: "GET",
+            success: function (data) {
+              var dattta = data[0];
+              $("#temperature").text(dattta.temperature);
+              $("#humidity").text(dattta.humidity);
+              temperatureData.push(dattta.temperature);
+              humidityData.push(dattta.humidity);
+
+              
+              localStorage.setItem("temperatureData", JSON.stringify(temperatureData));
+              localStorage.setItem("humidityData", JSON.stringify(humidityData));
+
+              updateTemperatureChart();
+              updateHumidityChart();
+            },
+            error: function (xhr, status, error) {
+              console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+            },
+          });
+        }, 60000); 
+      });
+
+      function updateTemperatureChart() {
+        temperatureChart.data.labels = temperatureData.map((value, index) => index + 1);
+        temperatureChart.data.datasets[0].data = temperatureData;
+        temperatureChart.update();
+      }
+
+      function updateHumidityChart() {
+        humidityChart.data.labels = humidityData.map((value, index) => index + 1);
+        humidityChart.data.datasets[0].data = humidityData;
+        humidityChart.update();
+      }
+    </script>
+  </body>
 </html>

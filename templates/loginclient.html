@@ -1,16 +1,20 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'basee.html' %} 
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="static/css/style3.css">
+
 <div class="container">
-  <form method="POST" id="formloginclient" class="shadow-lg p-6 mb-6 rounded">
+  <form method="POST" id="form" class="login-form">
     {% csrf_token %}
-    <h1 class="text-center mb-4">Connexion client</h1>
-    <div class="mb-3">
-      <label for="id" class="form-label"><h4>ID client:</h4></label>
+    <h1 class="text-center mb-4">Connexion composteur</h1>
+    <div class="form-group">
+      <label for="id" class="form-label"><h4>nom d'utilisateur:</h4></label>
       {{ formloginclient.identifiant }}
       {% if formloginclient.identifiant.errors %}<h4>
       <div class="text-danger" role="alert">{{ formloginclient.identifiant.errors }}</div></4>
       {% endif %}
     </div>
-    <div class="mb-3">
+    <div class="form-group">
       <label for="mot_de_passe" class="form-label"><h4>Mot de passe:</h4></label>
       {{ formloginclient.mot_de_passe }}
       {% if formloginclient.mot_de_passe.errors %}<h4>
@@ -18,9 +22,8 @@
       {% endif %}
     </div>
     <div class="text-center">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="save">Connexion</button>
+      <button class="btn btn-primary" type="submit" value="save">Connexion</button>
     </div>
   </form>
-</div>
-
+</div> 
 {% endblock %}

@@ -1,26 +1,29 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'basee.html' %} 
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="static/css/style3.css">
+
 <div class="container">
-  <form method="POST" id="form" class="shadow-lg p-6 mb-6 rounded">
+  <form method="POST" id="form" class="login-form">
     {% csrf_token %}
     <h1 class="text-center mb-4">Connexion superviseur</h1>
-    <div class="mb-3">
-      <label for="pseudo" class="form-label"><h4>ID superviseur:</h4></label>
+    <div class="form-group">
+      <label for="pseudo" class="form-label"><h4>nom d'utilisateur:</h4></label>
       {{ form.pseudo }}
-      {% if form.pseudo.errors %}<h4>
-      <div class="text-danger" role="alert">{{ form.pseudo.errors }}</div></4>
+      {% if form.pseudo.errors %}
+      <div class="text-danger" role="alert">{{ form.pseudo.errors }}</div>
       {% endif %}
     </div>
-    <div class="mb-3">
+    <div class="form-group">
       <label for="mot_de_passe" class="form-label"><h4>Mot de passe:</h4></label>
       {{ form.mot_de_passe }}
-      {% if form.mot_de_passe.errors %}<h4>
-      <div class="text-danger" role="alert">{{ form.mot_de_passe.errors }}</div></h4>
+      {% if form.mot_de_passe.errors %}
+      <div class="text-danger" role="alert">{{ form.mot_de_passe.errors }}</div>
       {% endif %}
     </div>
     <div class="text-center">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="save">Connexion</button>
+      <button class="btn btn-primary" type="submit" value="save">Connexion</button>
     </div>
   </form>
-</div>
-
+</div> 
 {% endblock %}

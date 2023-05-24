@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Be Green</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+   
+  <link href="static/assets/img/logo11.png" rel="icon">
+  <link href="static/assets/img/logo11.png" rel="apple-touch-icon">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+ 
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+ 
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <h1 class="logo"><a href="{% url 'home' %}">Be Green</a></h1>
+         
+
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto inactive" href="{% url 'home' %}">Retour page d'accueil  <span class="arrow">&rarr;</span></a></li>
+              <!-- <li><a class="nav-link scrollto" href="#about">A propos</a></li>
+              <li><a class="nav-link scrollto" href="#services">Services</a></li>
+             
+              <li><a class="nav-link scrollto" href="#team">Equipe</a></li>
+           
+              </li>
+              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'connexion' %}">Connexion</a></li> -->
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  {% block content %} {% endblock %}
+
+
+
+  
+  </footer>
+
+  
+  <script src="static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+
+  
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

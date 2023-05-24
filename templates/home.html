@@ -1,15 +1,678 @@
-{% extends 'base.html' %}
-{% block content %}
-<div class="container py-5">
-  <div class="row">
-      <div class="col-md-8 mx-auto">
-          <h1 class="text-center mb-4">Welcome to My Website</h1>
-          <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoreet enim eu neque dignissim, in blandit libero dignissim. Pellentesque eu orci et est faucibus commodo. Aliquam vitae lacus eget leo bibendum vehicula a a metus.</p>
-          <p class="lead mb-4">Nam scelerisque nunc vitae ante laoreet, vel tristique tellus faucibus. Sed euismod enim id nunc congue, id fringilla odio tincidunt. Morbi vulputate euismod arcu, ac feugiat est dapibus nec. Donec euismod quam non risus placerat elementum.</p>
-          <p class="lead mb-4">Proin semper malesuada dui vel venenatis. Sed sit amet tincidunt massa. Sed vitae metus in mi interdum elementum. Etiam malesuada, nibh vel rhoncus suscipit, mauris nisi dictum massa, nec consectetur augue magna sed odio. In viverra luctus ex, sit amet tincidunt leo semper quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec condimentum ullamcorper magna, nec eleifend leo lobortis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-          <a href="#" class="btn btn-primary btn-lg">Learn More</a>
+{% extends 'base.html' %} {% block content %}
+
+    <section id="hero">
+      <div class="hero-container">
+        <div
+          id="heroCarousel"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+          data-bs-interval="5000"
+        >
+          <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+
+          <div class="carousel-inner" role="listbox">
+            <div
+              class="carousel-item active"
+              style="
+                background-image: url(static/assets/img/hero-carousel/compost1.jpg);
+              "
+            >
+              <div class="carousel-container">
+                <div class="container">
+                  <h2 class="animate__animated animate__fadeInDown">
+                    Be Green
+                  </h2>
+                  <p class="animate__animated animate__fadeInUp">
+                    Le compostage est la danse naturelle entre les déchets
+                    organiques et la terre, créant ainsi une symphonie
+                    écologique.
+                  </p>
+                  <a
+                    href="#featured-services"
+                    class="btn-get-started scrollto animate__animated animate__fadeInUp"
+                    >Commencer maintenant !</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="carousel-item"
+              style="
+                background-image: url(static/assets/img/hero-carousel/compost5.jpg);
+              "
+            >
+              <div class="carousel-container">
+                <div class="container">
+                  <h2 class="animate__animated animate__fadeInDown">
+                    Be Green
+                  </h2>
+                  <p class="animate__animated animate__fadeInUp">
+                    Le compostage transforme nos déchets en une terre riche,
+                    nourrissant ainsi la nature et notre avenir.
+                  </p>
+                  <a
+                    href="#featured-services"
+                    class="btn-get-started scrollto animate__animated animate__fadeInUp"
+                    >Commencer maintenant !</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="carousel-item"
+              style="
+                background-image: url(static/assets/img/hero-carousel/compost3.jpg);
+              "
+            >
+              <div class="carousel-container">
+                <div class="container">
+                  <h2 class="animate__animated animate__fadeInDown">
+                    Be Green
+                  </h2>
+                  <p class="animate__animated animate__fadeInUp">
+                    Dans le cycle de la vie, le compostage est la clé qui ferme
+                    la boucle entre la nature et nos actions quotidiennes.
+                  </p>
+                  <a
+                    href="#featured-services"
+                    class="btn-get-started scrollto animate__animated animate__fadeInUp"
+                    >Commencer maintenant !</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="carousel-item"
+              style="
+                background-image: url(static/assets/img/hero-carousel/compost4.jpg);
+              "
+            >
+              <div class="carousel-container">
+                <div class="container">
+                  <h2 class="animate__animated animate__fadeInDown">
+                    Be Green
+                  </h2>
+                  <p class="animate__animated animate__fadeInUp">
+                    Le compostage est une leçon d'humilité, nous rappelant que
+                    même nos déchets peuvent avoir une seconde chance..
+                  </p>
+                  <a
+                    href="#featured-services"
+                    class="btn-get-started scrollto animate__animated animate__fadeInUp"
+                    >Commencer maintenant !</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="carousel-item"
+              style="
+                background-image: url(static/assets/img/hero-carousel/compost6.jpg);
+              "
+            >
+              <div class="carousel-container">
+                <div class="container">
+                  <h2 class="animate__animated animate__fadeInDown">
+                    Be Green
+                  </h2>
+                  <p class="animate__animated animate__fadeInUp">
+                    En compostant nos déchets, nous semons les graines d'un
+                    avenir plus durable et respectueux de l'environnement.
+                  </p>
+                  <a
+                    href="#featured-services"
+                    class="btn-get-started scrollto animate__animated animate__fadeInUp"
+                    >Commencer maintenant !</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a
+            class="carousel-control-prev"
+            href="#heroCarousel"
+            role="button"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon bi bi-chevron-left"
+              aria-hidden="true"
+            ></span>
+          </a>
+
+          <a
+            class="carousel-control-next"
+            href="#heroCarousel"
+            role="button"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon bi bi-chevron-right"
+              aria-hidden="true"
+            ></span>
+          </a>
+        </div>
       </div>
-  </div>
-</div>
-    
-{% endblock %}
+    </section>
+
+    <main id="main">
+      <section id="featured-services">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 box">
+              <i class="bi bi-briefcase"></i>
+              <h4 class="title"><a href="">Entreprises</a></h4>
+              <p class="description">
+                Les entreprises ont la possibilité et le potentiel d'effectuer
+                le compostage, ce qui peut avoir un impact positif à la fois sur
+                l'environnement et sur leur image de marque. En intégrant des
+                pratiques de compostage dans leurs opérations.
+              </p>
+            </div>
+
+            <div class="col-lg-4 box box-bg">
+              <i class="bi bi-card-checklist"></i>
+              <h4 class="title">
+                <a href="">Les propriétaires de maisons </a>
+              </h4>
+              <p class="description">
+                Ont une merveilleuse possibilité d'effectuer le compostage, ils
+                peuvent réduire la quantité de déchets envoyés aux décharges
+                tout en créant un terreau riche et fertile pour leurs plantes et
+                leur jardin.
+              </p>
+            </div>
+
+            <div class="col-lg-4 box">
+              <i class="bi bi-binoculars"></i>
+              <h4 class="title"><a href="">Ecoles et institutions</a></h4>
+              <p class="description">
+                Sont engagées dans le compostage pour réduire leur empreinte
+                écologique et promouvoir la durabilité. Ils peuvent mettre en
+                place des systèmes de compostage sur place ou participer à des
+                programmes de collecte et de compostage communautaires.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container" data-aos="fade-up">
+          <header class="section-header">
+            <h3>Qui sommes-nous</h3>
+            <p>
+              Smart For Green : Nous sommes une StartUp spécialisée dans
+              l'AgriTech , nous écoutons la Nature !
+            </p>
+          </header>
+
+          <div class="row about-cols">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="about-col">
+                <div class="img">
+                  <img
+                    src="static/assets/img/about-mission.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                  <div class="icon"><i class="bi bi-bar-chart"></i></div>
+                </div>
+                <h2 class="title"><a href="#">Notre Mission</a></h2>
+                <p>
+                  Révolutionner l'agriculture en combinant l'innovation
+                  technologique et pratiques agricoles durables. Nous sommes
+                  passionnés par l'idée de créer des solutions qui permettent
+                  d'optimiser les rendements agricoles tout en préservant les
+                  ressources naturelles et en réduisant l'impact
+                  environnemental.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="about-col">
+                <div class="img">
+                  <img
+                    src="static/assets/img/about-plan.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                  <div class="icon"><i class="bi bi-brightness-high"></i></div>
+                </div>
+                <h2 class="title"><a href="#">Notre Plan</a></h2>
+                <p>
+                  Nous investissons dans la recherche et le développement pour
+                  concevoir et améliorer nos technologies agricoles, Nous
+                  réalisons des tests approfondis de nos produits et solutions
+                  sur des exploitations agricoles réelles, ainsi nous
+                  établissons des partenariats stratégiques avec des acteurs
+                  clés de l'industrie agricole et nous avons pour ambition
+                  d'étendre notre présence sur les marchés nationaux et
+                  internationaux
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="about-col">
+                <div class="img">
+                  <img
+                    src="static/assets/img/about-vision.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                  <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+                </div>
+                <h2 class="title"><a href="#">Notre Vision</a></h2>
+                <p>
+                  construire un avenir agricole durable et prospère, où la
+                  technologie et les pratiques agricoles avancées se combinent
+                  pour nourrir la planète de manière responsable, préserver les
+                  écosystèmes et améliorer les moyens de subsistance des
+                  agriculteurs. Nous nous engageons à être des pionniers de
+                  cette transformation et à contribuer à un monde agricole plus
+                  résilient, respectueux de l'environnement et équitable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container" data-aos="fade-up">
+          <header class="section-header wow fadeInUp">
+            <h3>Services</h3>
+            <p>
+              Nous développons une gamme de solutions innovantes pour
+              l'agriculture durable.
+            </p>
+          </header>
+
+          <div class="row">
+            <div
+              class="col-lg-4 col-md-6 box"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="icon"><i class="bi bi-tree"></i></div>
+              <h4 class="title"><a href="">Solution FFFP</a></h4>
+              <p class="description">
+                Le système Farm and Forest Fire Protection est une solution de
+                protection contre les incendies dans les fermes et les forêts
+                basée sur une approche multidimensionnelle : prédire les risques
+                , détecter à temps et assister les équipes d'intervention.
+              </p>
+            </div>
+            <div
+              class="col-lg-4 col-md-6 box"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="icon"><i class="bi bi-trash"></i></div>
+              <h4 class="title"><a href="">Be Green</a></h4>
+              <p class="description">
+                La solution Be Green est un système intelligent de surveillance
+                du processus de compostage des déchets organique qui permet de
+                controler les facteurs principales pour réussir ce processus et
+                avoir un bon compost naturel et efficace.
+              </p>
+            </div>
+            <div
+              class="col-lg-4 col-md-6 box"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="icon"><i class="bi bi-currency-dollar"></i></div>
+              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <p class="description">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur
+              </p>
+            </div>
+            <div
+              class="col-lg-4 col-md-6 box"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="icon"><i class="bi bi-water"></i></div>
+              <h4 class="title"><a href="">Magni Dolores</a></h4>
+              <p class="description">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="call-to-action">
+        <div class="container text-center" data-aos="zoom-in">
+          <h3>Be Green</h3>
+          <p>
+            "La technologie dans l'agriculture est une clé qui ouvre les portes
+            d'un avenir durable, où la productivité rencontre la préservation de
+            l'environnement."
+          </p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container" data-aos="fade-up">
+          <header class="section-header">
+            <h3>Technologies</h3>
+            <p>
+              nous utilisons une variété de technologies pour développer nos
+              solutions
+            </p>
+          </header>
+
+          <div class="skills-content">
+            <div class="progress">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <span class="skill">LoRa <i class="val"></i></span>
+              </div>
+            </div>
+
+            <div class="progress">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <span class="skill">STM32 <i class="val"></i></span>
+              </div>
+            </div>
+
+            <div class="progress">
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <span class="skill"
+                  >Développement web et mobile <i class="val"></i
+                ></span>
+              </div>
+            </div>
+
+            <div class="progress">
+              <div
+                class="progress-bar bg-danger"
+                role="progressbar"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <span class="skill">Machine Learning <i class="val"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="facts">
+        <div class="container" data-aos="fade-up">
+          <header class="section-header">
+            <h3>Prix</h3>
+            <p>
+              nous sommes fiers d'avoir remporté plusieurs prix et
+              reconnaissances pour notre travail et nos solutions innovantes
+            </p>
+          </header>
+
+          <div class="row counters">
+            <div class="col-lg-3 col-6 text-center">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="1"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Lauréat de "GO GREEN"</p>
+            </div>
+
+            <div class="col-lg-3 col-6 text-center">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="1"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Lauréat de "GREEN TIC"</p>
+            </div>
+          </div>
+
+          <div class="facts-img">
+            <img
+              src="static/assets/img/greentic 1.jpg"
+              alt=""
+              class="img-fluid"
+            />
+            <img src="static/assets/img/smart4.jpg" alt="" class="img-fluid" />
+            <img src="static/assets/img/4000.jpg" alt="" class="img-fluid" />
+          </div>
+        </div>
+      </section>
+
+      <section id="clients">
+        <div class="container" data-aos="zoom-in">
+          <header class="section-header">
+            <h3>Partenaires</h3>
+          </header>
+
+          <div class="clients-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+              <div class="swiper-slide">
+                <img src="static/assets/img/s2t.png" class="img-fluid" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="static/assets/img/mrs.png" class="img-fluid" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="static/assets/img/khal9webde3jpg.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="static/assets/img/cirs.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide">
+                <img src="static/assets/img/sfg.png" class="img-fluid" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="static/assets/img/clients/client-6.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="static/assets/img/clients/client-7.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="static/assets/img/clients/client-8.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <section id="team">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h3>Equipe</h3>
+            <p>
+              Notre équipe travaille en étroite collaboration pour développer
+              une solution innovante "Be Green", en combinant les compétences
+              techniques, les connaissances et l'expertise en gestion de projet
+              et encadrement.
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <img
+                  src="static/assets/img/team-1.jpg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="member-info">
+                  <div class="member-info-content">
+                    <h4>ATAOUI HAMZA</h4>
+                    <span>développeur de "Be Green" v1.0</span>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="member" data-aos="fade-up" data-aos-delay="200">
+                <img
+                  src="static/assets/img/team-2.jpg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="member-info">
+                  <div class="member-info-content">
+                    <h4>FATHALLAH KARIM</h4>
+                    <span>CEO Smart for Green</span>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="member" data-aos="fade-up" data-aos-delay="300">
+                <img
+                  src="static/assets/img/team-3.jpg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="member-info">
+                  <div class="member-info-content">
+                    <h4>SEHLI SABRI</h4>
+                    <span>Encadrant chez Smart For Green</span>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="member" data-aos="fade-up" data-aos-delay="400">
+                <img
+                  src="static/assets/img/team-4.jpg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="member-info">
+                  <div class="member-info-content">
+                    <h4>BEN SELEM EMNA</h4>
+                    <span>Encadrant a la FSB</span>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h3>Pour nous contacter</h3>
+            <p>
+              Nous sommes ravis de pouvoir vous aider. Pour nous contacter,
+              veuillez utiliser les coordonnées suivantes
+            </p>
+          </div>
+
+          <div class="row contact-info">
+            <div class="col-md-4">
+              <div class="contact-address">
+                <i class="bi bi-geo-alt"></i>
+                <h3>Adresse</h3>
+                <address>Rue du Caire, Ras Jebel 7070, TN</address>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="contact-phone">
+                <i class="bi bi-phone"></i>
+                <h3>Télephone</h3>
+                <p><a href="tel:+155895548855">+216 93 267 545</a></p>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="contact-email">
+                <i class="bi bi-envelope"></i>
+                <h3>Email</h3>
+                <p>
+                  <a href="mailto:info@example.com"
+                    >Contact@smartforgreen.com</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {% endblock %}

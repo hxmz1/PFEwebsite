@@ -1,0 +1,113 @@
+body {
+  background-color: #4e664c;
+  font-family: Arial, sans-serif;
+  
+  
+}
+
+.container {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  width: 400px;
+  padding: 30px;
+  background-image: url('/static/images/bg6.jpg');
+  background-color: #e9e1e1;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeIn 0.5s ease-in-out;
+  color: aliceblue;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text-danger {
+  color: #f00;
+  font-size: 14px;
+  margin-top: 5px;
+  animation: shake 0.3s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.btn-primary {
+  background-color: #2a2730;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #272b31;
+  animation: pulse 0.5s ease infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

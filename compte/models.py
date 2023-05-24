@@ -25,7 +25,7 @@ class Client(models.Model):
     
 
     def __str__(self):
-        return f"{self.prenom} {self.nom}"
+        return f"{self.id} {self.nom}"
     
 
 
